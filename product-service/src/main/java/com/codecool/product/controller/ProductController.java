@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/productservice")
 public class ProductController {
 
     private final ProductRepository productRepository;

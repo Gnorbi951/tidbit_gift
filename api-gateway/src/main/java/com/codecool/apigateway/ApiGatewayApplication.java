@@ -45,7 +45,7 @@ public class ApiGatewayApplication {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant("/userservice/**"))
+                .paths(PathSelectors.ant("/**"))
                 .build();
     }
 
