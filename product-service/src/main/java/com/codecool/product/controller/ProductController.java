@@ -49,8 +49,8 @@ public class ProductController {
     }
 
     // TODO: check what will we get from UserService to check userId!
-    @DeleteMapping("/product/{id}")
-    public ResponsePackage deleteProduct(@PathVariable("id") Long id, @RequestBody Long userId) {
+    @DeleteMapping("/product/{id}/{userId}")
+    public ResponsePackage deleteProduct(@PathVariable("id") Long id, @PathVariable("userId") Long userId) {
         return productOrganiser.deleteProductOfUser(id, userId);
     }
 }

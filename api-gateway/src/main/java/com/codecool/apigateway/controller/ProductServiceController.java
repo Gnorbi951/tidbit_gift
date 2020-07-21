@@ -29,11 +29,16 @@ public class ProductServiceController {
 
     @GetMapping("/product/user/{id}")
     public List<Product> getAllProductsOfUser(@PathVariable("id") Long id) {
-        return productServiceCaller.getAllByUserId(id);
+        return productServiceCaller.getAllProductsByUserId(id);
     }
 
     @PostMapping("/product")
     public ResponsePackage addNewProduct(@RequestBody Product product) {
         return productServiceCaller.addNewProduct(product);
+    }
+
+    @DeleteMapping(value = "/product/{id}/{userId}")
+    public ResponsePackage deleteProduct(@PathVariable("id") Long id, @PathVariable("userId") Long userid) {
+        return productServiceCaller.deleteProductOfUser(id, userid);
     }
 }

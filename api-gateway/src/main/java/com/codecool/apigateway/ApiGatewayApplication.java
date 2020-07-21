@@ -2,6 +2,7 @@ package com.codecool.apigateway;
 
 import com.codecool.apigateway.entity.UserEntity;
 import com.codecool.apigateway.repository.UserRepository;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -83,7 +84,15 @@ public class ApiGatewayApplication {
                     .email("lajos@lajos.com")
                     .build();
 
+            UserEntity Gaiza = UserEntity.builder()
+                    .name("Gaiza")
+                    .password("password")
+                    .roles(Arrays.asList("USER"))
+                    .email("gazia@gazia.hu")
+                    .build();
+
             repository.save(user);
+            repository.save(Gaiza);
 
         };
     }
