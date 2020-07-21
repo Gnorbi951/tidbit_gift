@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import Cards from "./Cards";
 
 const MainPage = () => {
 
@@ -7,13 +8,14 @@ const MainPage = () => {
 
     useEffect(() => {
         axios.get("http://localhost:8762/productservice/productservice/product")
-            .then(response => console.log(response));
-
-    })
+            .then(response => setItems(response.data));
+    }, [])
 
     return(
         <React.Fragment>
-            MainPage
+            {items ? <Cards items={items} />
+            : <img src={"https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"}
+               alt={"Loading"} />}
         </React.Fragment>
     )
 
