@@ -26,16 +26,12 @@ const ProductDetail = props => {
                     </div>
 
                     <div className="col-md-4">
-                        <h3 className="my-3">Project Description</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida
-                            pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec
-                            metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-                        <h3 className="my-3">Project Details</h3>
+                        <h3 className="my-3">Product Description</h3>
+                        <p>{product.description}</p>
+                        <h5>Price: {product.price} Huf</h5>
+                        <h3 className="my-3">User Contact:</h3>
                         <ul>
-                            <li>Lorem Ipsum</li>
-                            <li>Dolor Sit Amet</li>
-                            <li>Consectetur</li>
-                            <li>Adipiscing Elit</li>
+                            <li>{product.userId} (this is their id)</li>
                         </ul>
                     </div>
 
