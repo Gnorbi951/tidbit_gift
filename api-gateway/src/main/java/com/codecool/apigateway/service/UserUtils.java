@@ -1,6 +1,5 @@
 package com.codecool.apigateway.service;
 
-import com.codecool.apigateway.model.UserCredentials;
 import com.codecool.apigateway.entity.UserEntity;
 import com.codecool.apigateway.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

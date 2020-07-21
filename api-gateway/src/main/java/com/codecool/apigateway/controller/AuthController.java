@@ -36,16 +36,16 @@ public class AuthController {
     public ResponseEntity signIn(@RequestBody UserCredentials data) {
         Map<Object, Object> model = new HashMap<>();
         try {
-            String username = data.getUsername();
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
+            String name = data.getName();
+            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(name, data.getPassword()));
             List<String> roles = authentication.getAuthorities()
                     .stream()
                     .map(GrantedAuthority::getAuthority)
                     .collect(Collectors.toList());
 
-            String token = jwtTokenServices.createToken(username, roles);
+            String token = jwtTokenServices.createToken(name, roles);
 
-            model.put("username", username);
+            model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
             model.put("status","OK");

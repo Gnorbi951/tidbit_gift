@@ -24,7 +24,7 @@ public class JwtTokenServices {
     private String secretKey = "secret";
 
     @Value("${security.jwt.token.expire-length:3600000}")
-    private long validityInMilliseconds = 36000000; // 10h
+    private final long validityInMilliseconds = 36000000; // 10h
 
     private final String rolesFieldName = "roles";
 
@@ -66,10 +66,7 @@ public class JwtTokenServices {
     boolean validateToken(String token) {
         try {
             Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
-            if (claims.getBody().getExpiration().before(new Date())) {
-                return false;
-            }
-            return true;
+            return !claims.getBody().getExpiration().before(new Date());
         } catch (JwtException | IllegalArgumentException e) {
             log.debug("JWT token invalid " + e);
         }
@@ -91,7 +88,6 @@ public class JwtTokenServices {
 
     public String getUsernameFromToken(String token) throws UsernameNotFoundException {
         Claims body = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
-        String username = body.getSubject();
-        return username;
+        return body.getSubject();
     }
 }
