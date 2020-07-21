@@ -69,7 +69,7 @@ public class ProductServiceApplication {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant("/productservice/**"))
+                .paths(PathSelectors.ant("/**"))
                 .build();
     }
 
