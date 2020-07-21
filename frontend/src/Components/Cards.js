@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Cards = props => {
     console.log(props.items)
@@ -10,7 +11,9 @@ const Cards = props => {
                 {props.items.map((item) =>
                     <div className="card" key={item.id}>
                         <div className="card-img-top">
-                            <img src={item.picture} alt={"Product"} width={"100%"} height={"100%"}/>
+                            <Link to={"/product/"+item.id}>
+                                <img src={item.picture} alt={"Product"} width={"100%"} height={"100%"}/>
+                            </Link>
                         </div>
                         <div className="card-body">
                             <h5 className="card-title">{item.name}</h5>
