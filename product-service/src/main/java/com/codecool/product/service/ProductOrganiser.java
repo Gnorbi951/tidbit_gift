@@ -1,7 +1,8 @@
-package com.codecool.product.repository;
+package com.codecool.product.service;
 
-import com.codecool.product.controller.ResponsePackage;
+import com.codecool.product.model.ResponsePackage;
 import com.codecool.product.entity.Product;
+import com.codecool.product.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Service;

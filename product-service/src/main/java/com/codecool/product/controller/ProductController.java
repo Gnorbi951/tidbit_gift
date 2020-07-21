@@ -1,7 +1,8 @@
 package com.codecool.product.controller;
 
 import com.codecool.product.entity.Product;
-import com.codecool.product.repository.ProductOrganiser;
+import com.codecool.product.model.ResponsePackage;
+import com.codecool.product.service.ProductOrganiser;
 import com.codecool.product.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 

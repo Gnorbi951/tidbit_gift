@@ -1,4 +1,4 @@
-package com.codecool.product.controller;
+package com.codecool.product.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
