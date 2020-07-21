@@ -7,7 +7,7 @@ const MainPage = () => {
     const [items, setItems] = useState();
 
     useEffect(() => {
-        axios.get("http://localhost:8762/productservice/productservice/product")
+        axios.get("http://localhost:8762/productservice/product")
             .then(response => setItems(response.data));
     }, [])
 
