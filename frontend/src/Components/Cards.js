@@ -1,11 +1,25 @@
 import React from "react";
 
 const Cards = props => {
-    console.log(props);
+    console.log(props.items)
 
     return(
         <React.Fragment>
-            This is a card ;)
+
+            <div className="card-columns">
+                {props.items.map((item) =>
+                    <div className="card" key={item.id}>
+                        <div className="card-img-top">
+                            <img src={item.picture} alt={"Product"} width={"100%"} height={"100%"}/>
+                        </div>
+                        <div className="card-body">
+                            <h5 className="card-title">{item.name}</h5>
+                            <p className="card-text">{item.description}</p>
+                            <p className="card-text"><small className="text-muted">Seller: {item.userId}</small></p>
+                        </div>
+                    </div>
+                )}
+            </div>
         </React.Fragment>
     )
 }
