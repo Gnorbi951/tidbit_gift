@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 const NavBar = () => {
@@ -9,6 +11,9 @@ const NavBar = () => {
         <React.Fragment>
             <NavBarHeader>
                 <MyLink to={"/"}>Home</MyLink>
+                <LoginIcon to={"/login"}>
+                    <FontAwesomeIcon icon={faSignInAlt} />
+                </LoginIcon>
             </NavBarHeader>
         </React.Fragment>
     );
@@ -35,6 +40,17 @@ const MyLink = styled(Link)`
     text-decoration: none;
   }
   font-size: 1.5rem;
+`;
+const LoginIcon = styled(Link)`
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-left: auto;
+  padding-right: 1rem;
+  &:hover {
+    transition: 350ms;
+    color: #a9a9a9;
+    text-decoration: none;
+  }
 `;
 
 export default NavBar;
