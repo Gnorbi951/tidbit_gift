@@ -14,11 +14,10 @@ const ProductDetail = props => {
 
     return (
         <React.Fragment>
+            {product ? (
             <div className="container">
 
-                <h1 className="my-4">Page Heading
-                    <small>Secondary Text</small>
-                </h1>
+                <h1 className="my-4">Page Heading</h1>
 
                 <div className="row">
 
@@ -41,7 +40,8 @@ const ProductDetail = props => {
                     </div>
 
                 </div>
-            </div>
+            </div> ) : <img src={"https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"} //This is the loading image
+                            alt={"Loading"} /> }
         </React.Fragment>
     )
 }
