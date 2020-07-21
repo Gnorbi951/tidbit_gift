@@ -23,4 +23,12 @@ public class ProductServiceCaller {
     public List<Product> getAllProducts() {
         return restTemplate.getForObject(baseUrl + "/product", List.class);
     }
+
+    public Product getById(Long id) {
+        return restTemplate.getForObject(baseUrl + "/product/" + id, Product.class);
+    }
+
+    public List<Product> getAllByUserId(Long id) {
+        return restTemplate.getForObject(baseUrl + "/product/user/" + id, List.class);
+    }
 }

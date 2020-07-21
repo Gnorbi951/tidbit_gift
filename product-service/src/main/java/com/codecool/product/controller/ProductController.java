@@ -25,7 +25,6 @@ public class ProductController {
     // TODO: get wrapper around the list?
     @GetMapping("/product")
     public List<Product> getAllProducts() {
-        log.info("Got a request for all products.");
         return productRepository.findAll();
     }
 
