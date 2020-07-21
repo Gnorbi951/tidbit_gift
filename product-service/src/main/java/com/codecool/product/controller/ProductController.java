@@ -43,6 +43,8 @@ public class ProductController {
     // TODO: do we need a product wrapper class?
     @PostMapping("/product")
     public ResponsePackage addNewProduct(@RequestBody Product product) {
+        log.info("Got new product");
+        log.info(product.toString());
         return productOrganiser.addNewProduct(product);
     }
 
