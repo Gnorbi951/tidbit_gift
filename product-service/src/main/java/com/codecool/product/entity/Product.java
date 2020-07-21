@@ -19,7 +19,7 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @NonNull
     private Long userId;
 
