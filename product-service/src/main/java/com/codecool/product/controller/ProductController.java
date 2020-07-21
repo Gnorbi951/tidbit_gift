@@ -1,13 +1,18 @@
 package com.codecool.product.controller;
 
 import com.codecool.product.entity.Product;
-import com.codecool.product.repository.ProductOrganiser;
+import com.codecool.product.model.ResponsePackage;
+import com.codecool.product.service.ProductOrganiser;
 import com.codecool.product.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
+@RequestMapping("/productservice")
+@Slf4j
 public class ProductController {
 
     private final ProductRepository productRepository;
@@ -43,8 +48,8 @@ public class ProductController {
     }
 
     // TODO: check what will we get from UserService to check userId!
-    @DeleteMapping("/product/{id}")
-    public ResponsePackage deleteProduct(@PathVariable("id") Long id, @RequestBody Long userId) {
+    @DeleteMapping("/product/{id}/{userId}")
+    public ResponsePackage deleteProduct(@PathVariable("id") Long id, @PathVariable("userId") Long userId) {
         return productOrganiser.deleteProductOfUser(id, userId);
     }
 }
