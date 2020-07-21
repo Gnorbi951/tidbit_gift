@@ -1,14 +1,13 @@
 package com.codecool.product.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import javax.validation.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+
 
 @Data
 @NoArgsConstructor
@@ -20,8 +19,8 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
-
-    @NotEmpty
+    
+    @NonNull
     private Long userId;
 
     @NotEmpty
