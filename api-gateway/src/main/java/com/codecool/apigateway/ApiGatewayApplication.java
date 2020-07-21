@@ -93,17 +93,8 @@ public class ApiGatewayApplication {
                     .password(passwordEncoder.encode("password"))
                     .email("lajos@lajos.com")
                     .roles(Collections.singletonList("ROLE_USER"))
-                    .build();
-
-            UserEntity Gaiza = UserEntity.builder()
-                    .name("Gaiza")
-                    .password("password")
-                    .roles(Arrays.asList("USER"))
-                    .email("gazia@gazia.hu")
-                    .build();
-
-            repository.save(user);
-            repository.save(Gaiza);
+                    .build()
+            );
 
             repository.saveAndFlush(UserEntity.builder()
                     .name("admin")
