@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/productservice")
 @Slf4j
 public class ProductController {
@@ -43,8 +44,6 @@ public class ProductController {
     // TODO: do we need a product wrapper class?
     @PostMapping("/product")
     public ResponsePackage addNewProduct(@RequestBody Product product) {
-        log.info("Got new product");
-        log.info(product.toString());
         return productOrganiser.addNewProduct(product);
     }
 
