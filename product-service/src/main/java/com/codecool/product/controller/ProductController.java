@@ -4,11 +4,14 @@ import com.codecool.product.entity.Product;
 import com.codecool.product.model.ResponsePackage;
 import com.codecool.product.service.ProductOrganiser;
 import com.codecool.product.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/productservice")
+@Slf4j
 public class ProductController {
 
     private final ProductRepository productRepository;
@@ -22,6 +25,7 @@ public class ProductController {
     // TODO: get wrapper around the list?
     @GetMapping("/product")
     public List<Product> getAllProducts() {
+        log.info("Got a request for all products.");
         return productRepository.findAll();
     }
 
