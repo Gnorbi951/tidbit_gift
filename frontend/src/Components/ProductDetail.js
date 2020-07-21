@@ -17,12 +17,12 @@ const ProductDetail = props => {
             {product ? (
             <div className="container">
 
-                <h1 className="my-4">Page Heading</h1>
+                <h1 className="my-4">{product.name}</h1>
 
                 <div className="row">
 
                     <div className="col-md-8">
-                        <img className="img-fluid" src="http://placehold.it/750x500" alt="" />
+                        <img className="img-fluid" src={product.picture} alt="" />
                     </div>
 
                     <div className="col-md-4">
