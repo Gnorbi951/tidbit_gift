@@ -12,6 +12,9 @@ import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -22,6 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @SpringBootApplication
@@ -36,6 +40,9 @@ public class ApiGatewayApplication {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public static void main(String[] args) {
         SpringApplication.run(ApiGatewayApplication.class, args);
     }
@@ -47,6 +54,10 @@ public class ApiGatewayApplication {
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.ant("/**"))
                 .build();
+    }
+    @Bean
+    public PasswordEncoder getEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Primary
@@ -64,7 +75,7 @@ public class ApiGatewayApplication {
     private SwaggerResource createResource(String name, String location, String version) {
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
-        swaggerResource.setLocation("/" + location +"/v2/api-docs");
+        swaggerResource.setLocation("/" + location + "/v2/api-docs");
         swaggerResource.setSwaggerVersion(version);
         return swaggerResource;
     }
@@ -74,15 +85,21 @@ public class ApiGatewayApplication {
     public CommandLineRunner init() {
         return args -> {
 
-            UserEntity user = UserEntity.builder()
+            repository.saveAndFlush(UserEntity.builder()
                     .name("Lajos")
-                    .password("password")
-                    .roles(Arrays.asList("USER","ADMIN"))
+                    .password(passwordEncoder.encode("password"))
                     .email("lajos@lajos.com")
-                    .build();
+                    .roles(Collections.singletonList("ROLE_USER"))
+                    .build()
+            );
 
-            repository.save(user);
-
+            repository.saveAndFlush(UserEntity.builder()
+                    .name("admin")
+                    .password(passwordEncoder.encode("password"))
+                    .email("email@email.com")
+                    .roles(Arrays.asList("ROLE_USER", "ROLE_ADMIN"))
+                    .build()
+            );
         };
     }
 }
