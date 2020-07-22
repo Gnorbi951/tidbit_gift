@@ -34,12 +34,12 @@ public class ProductServiceController {
     }
 
     @PostMapping("/product")
-    public ResponsePackage addNewProduct(@RequestBody Product product) {
-        return productServiceCaller.addNewProduct(product);
+    public ResponsePackage addNewProduct(@RequestHeader String authorization, @RequestBody Product product) {
+        return productServiceCaller.addNewProduct(product, authorization);
     }
 
-    @DeleteMapping(value = "/product/{id}/{userId}")
-    public ResponsePackage deleteProduct(@PathVariable("id") Long id, @PathVariable("userId") Long userid) {
-        return productServiceCaller.deleteProductOfUser(id, userid);
+    @DeleteMapping(value = "/product/{id}")
+    public ResponsePackage deleteProduct(@RequestHeader String authorization, @PathVariable("id") Long id) {
+        return productServiceCaller.deleteProductOfUser(id, authorization);
     }
 }

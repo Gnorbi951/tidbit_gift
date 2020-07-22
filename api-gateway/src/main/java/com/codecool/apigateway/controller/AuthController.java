@@ -67,7 +67,7 @@ public class AuthController {
     }
 
     @GetMapping("/get-user-from-token")
-    public UserEntity returnHotelUserFromToken(@RequestHeader String Authorization) {
+    public UserEntity returnUserFromToken(@RequestHeader String Authorization) {
         return controllerUtil.getUserFromToken(Authorization);
     }
 }

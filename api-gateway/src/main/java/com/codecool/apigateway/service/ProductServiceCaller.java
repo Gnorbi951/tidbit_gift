@@ -1,5 +1,7 @@
 package com.codecool.apigateway.service;
 
+import com.codecool.apigateway.controller.AuthController;
+import com.codecool.apigateway.controller.ControllerUtil;
 import com.codecool.apigateway.entity.UserEntity;
 import com.codecool.apigateway.model.Product;
 import com.codecool.apigateway.model.ProductListWrapper;
@@ -32,6 +34,9 @@ public class ProductServiceCaller {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ControllerUtil controllerUtil;
+
     @Value("${productservice.url}")
     private String baseUrl;
 
@@ -47,23 +52,28 @@ public class ProductServiceCaller {
         return restTemplate.getForObject(baseUrl + "/product/user/" + id, List.class);
     }
 
-    public ResponsePackage addNewProduct(Product product) {
+    public ResponsePackage addNewProduct(Product product, String authorization) {
+        UserEntity userFromToken = controllerUtil.getUserFromToken(authorization);
         UserEntity user = userRepository.getUserById(product.getUserId());
-        if (user != null) {
+
+        if (user != null && userFromToken.getId() == user.getId()) {
             return restTemplate.postForObject(baseUrl + "/product", product, ResponsePackage.class);
         }
-        return new ResponsePackage(false, "Wrong user");
+        return new ResponsePackage(false, "Wrong user.");
     }
 
-    public ResponsePackage deleteProductOfUser(Long id, Long userId) {
-        UserEntity user = userRepository.getUserById(userId);
+    public ResponsePackage deleteProductOfUser(Long id, String authorization) {
+        UserEntity userFromToken = controllerUtil.getUserFromToken(authorization);
+        Long userId = userFromToken.getId();
+        UserEntity user = userRepository.getUserById(userId); // TODO: check if we need to double check at all
         String url = baseUrl + "/product/" + id + "/" + userId;
 
-        if (user != null) {
+        if (user != null && userFromToken.getName() == user.getName()) {
             Product product = getById(id);
             if (product.getUserId() == user.getId()) {
+                // TODO: rewrite to restTemplate.exchange() to receive feedback from Product Service
                 restTemplate.delete(url);
-                return new ResponsePackage(true, "Request sent.");
+                return new ResponsePackage(true, "Product deleted.");
             }
             return new ResponsePackage(false, "Wrong user.");
         }
