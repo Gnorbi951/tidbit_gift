@@ -15,5 +15,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Product getByIdAndUserId(Long id, Long userId);
 
-    boolean deleteByIdAndUserId(Long id, Long userId);
+    int deleteByIdAndUserId(Long id, Long userId);
 }
