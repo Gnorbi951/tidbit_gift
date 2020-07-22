@@ -11,6 +11,7 @@ const NavBar = () => {
         <React.Fragment>
             <NavBarHeader>
                 <MyLink to={"/"}>Home</MyLink>
+                <MyLink to={"/my-products"}>My Products</MyLink>
                 <LoginIcon to={"/login"}>
                     <FontAwesomeIcon icon={faSignInAlt} />
                 </LoginIcon>
