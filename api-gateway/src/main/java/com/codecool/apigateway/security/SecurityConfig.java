@@ -2,6 +2,7 @@ package com.codecool.apigateway.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -41,6 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/productservice/product").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/productservice/product/**").authenticated()
+                .antMatchers("/productservice/product/user/**").authenticated()
                 .antMatchers("/auth/**","/userservice/**","/productservice/**").permitAll()
                 .anyRequest().denyAll()
                 .and()

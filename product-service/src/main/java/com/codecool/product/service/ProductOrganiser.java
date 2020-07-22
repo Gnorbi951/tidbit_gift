@@ -40,7 +40,6 @@ public class ProductOrganiser {
 
     public ResponsePackage deleteProductOfUser(Long id, Long userId) {
         Product foundProduct = productRepository.getByIdAndUserId(id, userId);
-        System.out.println(foundProduct);
 
         if (foundProduct != null) {
             int deletionResponse = productRepository.deleteByIdAndUserId(id, userId);
