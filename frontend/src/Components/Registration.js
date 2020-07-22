@@ -39,7 +39,7 @@ const Registration = () => {
             sendRegistrationRequest(form, serverResponseField);
         })
 
-    }, [])
+    }, [form])
 
     return (
         <React.Fragment>
