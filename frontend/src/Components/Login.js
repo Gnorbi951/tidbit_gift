@@ -6,13 +6,13 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const serverRequest = {"username": username, "password": password}
+    const serverRequest = {"name": username, "password": password}
 
     const logIn = (event) => {
         event.stopPropagation()
         //TODO: When authentication works change the endpoint
         axios
-            .post('http://localhost:8762/...', serverRequest,{
+            .post('http://localhost:8762/auth/login', serverRequest,{
                 headers: {
                     'Content-Type': 'application/json'
                 },

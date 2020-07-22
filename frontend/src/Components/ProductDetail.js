@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import ShowUserDetails from "./SubComponents/ShowUserDetails";
 
 const ProductDetail = props => {
     console.log(props)
@@ -30,9 +31,7 @@ const ProductDetail = props => {
                         <p>{product.description}</p>
                         <h5>Price: {product.price} Huf</h5>
                         <h3 className="my-3">User Contact:</h3>
-                        <ul>
-                            <li>{product.userId} (this is their id)</li>
-                        </ul>
+                        <ShowUserDetails id={product.userId} caller={"productDetail"} />
                     </div>
 
                 </div>
