@@ -19,6 +19,7 @@ const NavBar = () => {
         <React.Fragment>
             <NavBarHeader>
                 <MyLink to={"/"}>Home</MyLink>
+                <MyLink to={"/my-products"}>My Products</MyLink>
                 {userName ? <UserHeader>Logged in as: {userName}</UserHeader> : <h4>Not Logged In</h4>}
                 <LoginIcon to={"/login"}>
                     <FontAwesomeIcon icon={faSignInAlt} />
