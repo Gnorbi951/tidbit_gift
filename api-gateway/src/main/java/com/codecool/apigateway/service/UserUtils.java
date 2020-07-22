@@ -48,7 +48,7 @@ public class UserUtils {
                 .name(userName)
                 .password(passwordEncoder.encode(password))
                 .email(email)
-                .roles(Collections.singletonList("ROLE_USER"))
+                .roles(Collections.singletonList("USER"))
                 .build();
 
         userRepository.save(user);

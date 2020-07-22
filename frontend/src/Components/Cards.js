@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShowUserDetails from "./SubComponents/ShowUserDetails";
+import DeleteProduct from "./SubComponents/DeleteProduct";
 
 const Cards = props => {
     return(
@@ -20,6 +21,11 @@ const Cards = props => {
                             <h6 className="card-text">Price: {item.price} Huf</h6>
                             <div className="card-text"><ShowUserDetails id={item.userId} caller={"card"} /></div>
                         </div>
+                        {localStorage.getItem("id") === item.userId ?
+                            <DeleteProduct id={item.id} userId={item.userId} />
+                            :
+                            <div/>
+                        }
                     </div>
                 )}
             </div>

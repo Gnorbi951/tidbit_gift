@@ -92,7 +92,7 @@ public class ApiGatewayApplication {
                     .name("Lajos")
                     .password(passwordEncoder.encode("password"))
                     .email("lajos@lajos.com")
-                    .roles(Collections.singletonList("ROLE_USER"))
+                    .roles(Collections.singletonList("USER"))
                     .build()
             );
 
@@ -100,7 +100,7 @@ public class ApiGatewayApplication {
                     .name("admin")
                     .password(passwordEncoder.encode("password"))
                     .email("email@email.com")
-                    .roles(Arrays.asList("ROLE_USER", "ROLE_ADMIN"))
+                    .roles(Arrays.asList("USER", "ADMIN"))
                     .build()
             );
         };
