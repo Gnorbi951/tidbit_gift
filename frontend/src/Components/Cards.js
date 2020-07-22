@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ShowUserName from "./SubComponents/ShowUserName";
+import ShowUserDetails from "./SubComponents/ShowUserDetails";
 
 const Cards = props => {
     return(
@@ -18,7 +18,7 @@ const Cards = props => {
                             <h5 className="card-title">{item.name}</h5>
                             <p className="card-text">{item.description}</p>
                             <h6 className="card-text">Price: {item.price} Huf</h6>
-                            <div className="card-text"><ShowUserName id={item.userId} /></div>
+                            <div className="card-text"><ShowUserDetails id={item.userId} caller={"card"} /></div>
                         </div>
                     </div>
                 )}
