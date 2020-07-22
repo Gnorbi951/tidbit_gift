@@ -19,7 +19,7 @@ const Login = () => {
             })
             .then((response) => {
                 if (response.data.status !== "WRONG"){
-                    logUserIn(response.data.token,response.data.username,response.data.roles,response.data.id)
+                    logUserIn(response.data.token,response.data.name,response.data.roles,response.data.id)
                 }
                 else {
                     alert("Wrong username or password")
