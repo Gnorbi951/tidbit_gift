@@ -281,7 +281,7 @@ class ProductTest {
     }
 
     @Test
-    public void testNameCannotBeNull() {
+    public void testNullNameThrowsError() {
         Product testProduct = Product.builder()
                 .userId(2L)
                 .description("Test it")
@@ -294,7 +294,7 @@ class ProductTest {
     }
 
     @Test
-    public void testUserIdCannotBeNull() {
+    public void testNoUserIdThrowsError() {
         Product testProduct = Product.builder()
                 .name("test name")
                 .description("Test it")
@@ -307,7 +307,7 @@ class ProductTest {
     }
 
     @Test
-    public void testDescriptionCannotBeNull() {
+    public void testNoDescriptionThrowsError() {
         Product testProduct = Product.builder()
                 .userId(2L)
                 .name("test name")
