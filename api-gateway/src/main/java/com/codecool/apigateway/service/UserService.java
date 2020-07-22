@@ -25,4 +25,6 @@ public class UserService {
     public String getPasswordById(Long id) {
         return repository.getPasswordById(id);
     }
+
+    public Long getIdByName(String name){return repository.getIdByName(name);}
 }
