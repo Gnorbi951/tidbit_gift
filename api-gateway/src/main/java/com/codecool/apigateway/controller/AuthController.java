@@ -4,6 +4,7 @@ import com.codecool.apigateway.entity.UserEntity;
 import com.codecool.apigateway.model.ResponseType;
 import com.codecool.apigateway.model.UserCredentials;
 import com.codecool.apigateway.security.JwtTokenServices;
+import com.codecool.apigateway.service.UserService;
 import com.codecool.apigateway.service.UserUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,7 @@ public class AuthController {
     private final ControllerUtil controllerUtil;
 
     private final UserUtils userUtils;
+    private final UserService service;
 
 
     @PostMapping(value = "/login")
@@ -44,7 +46,9 @@ public class AuthController {
                     .collect(Collectors.toList());
 
             String token = jwtTokenServices.createToken(name, roles);
+            Long id = service.getIdByName(name);
 
+            model.put("id",id);
             model.put("name", name);
             model.put("roles", roles);
             model.put("token", token);
