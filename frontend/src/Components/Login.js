@@ -19,7 +19,7 @@ const Login = () => {
             })
             .then((response) => {
                 if (response.data.status !== "WRONG"){
-                    logUserIn(response.data.token,response.data.name,response.data.roles)
+                    logUserIn(response.data.token,response.data.username,response.data.roles,response.data.id)
                 }
                 else {
                     alert("Wrong username or password")
@@ -27,9 +27,10 @@ const Login = () => {
             });
     }
 
-    const logUserIn = (token,username,roles) => {
+    const logUserIn = (token,username,roles,id) => {
         localStorage.setItem("token",token)
         localStorage.setItem("roles",roles)
+        localStorage.setItem("id",id)
         localStorage.setItem("username",username);
         window.location.href = '/';
     };
