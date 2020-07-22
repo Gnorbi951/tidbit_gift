@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import ShowUserDetails from "./SubComponents/ShowUserDetails";
+import LoadingImage from "./MainPage";
 
 const ProductDetail = props => {
     console.log(props)
@@ -35,7 +36,7 @@ const ProductDetail = props => {
                     </div>
 
                 </div>
-            </div> ) : <img src={"https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"} //This is the loading image
+            </div> ) : <LoadingImage src={"https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"} //This is the loading image
                             alt={"Loading"} /> }
         </React.Fragment>
     )
