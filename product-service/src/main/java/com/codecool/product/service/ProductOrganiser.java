@@ -43,8 +43,8 @@ public class ProductOrganiser {
         System.out.println(foundProduct);
 
         if (foundProduct != null) {
-            productRepository.deleteByIdAndUserId(id, userId);
-            return new ResponsePackage(true, "Product successfully deleted.");
+            int deletionResponse = productRepository.deleteByIdAndUserId(id, userId);
+            return deletionResponse == 0 ? new ResponsePackage(false, "Error in deletion.") : new ResponsePackage(true, "Product successfully deleted.");
         }
 
         return new ResponsePackage(false, "Product not found.");

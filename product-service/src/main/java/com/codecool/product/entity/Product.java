@@ -2,6 +2,7 @@ package com.codecool.product.entity;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ public class Product {
     @GeneratedValue
     private Long id;
 
-    @NonNull
+    @Column(nullable = false)
     private Long userId;
 
     @NotEmpty
