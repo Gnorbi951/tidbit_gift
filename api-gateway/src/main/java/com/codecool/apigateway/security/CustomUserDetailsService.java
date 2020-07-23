@@ -2,6 +2,7 @@ package com.codecool.apigateway.security;
 
 import com.codecool.apigateway.entity.UserEntity;
 import com.codecool.apigateway.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,13 +13,10 @@ import org.springframework.stereotype.Component;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository users;
-
-    public CustomUserDetailsService(UserRepository users) {
-        this.users = users;
-    }
 
     /**
      * Loads the user from the DB and converts it to Spring Security's internal User oobject

@@ -24,12 +24,9 @@ import java.util.stream.Collectors;
 @RequestMapping(value = "/auth")
 @RequiredArgsConstructor
 public class AuthController {
-
     private final AuthenticationManager authenticationManager;
-
     private final JwtTokenServices jwtTokenServices;
     private final ControllerUtil controllerUtil;
-
     private final UserUtils userUtils;
     private final UserService service;
 

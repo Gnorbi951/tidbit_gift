@@ -3,8 +3,8 @@ package com.codecool.apigateway.controller;
 import com.codecool.apigateway.model.Product;
 import com.codecool.apigateway.model.ResponsePackage;
 import com.codecool.apigateway.service.ProductServiceCaller;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +13,9 @@ import java.util.List;
 @RequestMapping("/productservice")
 @CrossOrigin("http://localhost:3000")
 @Slf4j
+@RequiredArgsConstructor
 public class ProductServiceController {
-
-    @Autowired
-    private ProductServiceCaller productServiceCaller;
+    private final ProductServiceCaller productServiceCaller;
 
     @GetMapping("/product")
     private List<Product> getAllProducts() {
@@ -35,7 +34,6 @@ public class ProductServiceController {
 
     @PostMapping("/product")
     public ResponsePackage addNewProduct(@RequestHeader String authorization, @RequestBody Product product) {
-        System.out.println("here");
         return productServiceCaller.addNewProduct(product, authorization);
     }
 

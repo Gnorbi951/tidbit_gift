@@ -2,16 +2,17 @@ package com.codecool.apigateway.service;
 
 import com.codecool.apigateway.entity.UserEntity;
 import com.codecool.apigateway.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    private UserRepository repository;
+
+    private final UserRepository repository;
 
 
     public List<UserEntity> getAllUser() {
