@@ -61,6 +61,7 @@ return(
                             type="number"
                             name="price"
                             id="price"
+                            min="0"
                         />
                     <br/>
                     <label>Picture:</label>
