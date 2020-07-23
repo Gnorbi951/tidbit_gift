@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
+import styled from "styled-components";
 
 const NewProduct = () => {
     let product = {"id":"0","userId": `${localStorage.getItem("id")}`,"name": "", "description": "", "price": "", "picture": ""};
-    const history = useHistory()
+    const history = useHistory();
 
-    const addNewProduct = () => {
+    const addNewProduct = (event) => {
+        event.preventDefault();
         product.name = document.querySelector("#name").value;
         product.description = document.querySelector("#description").value;
         product.price = document.querySelector("#price").value;
