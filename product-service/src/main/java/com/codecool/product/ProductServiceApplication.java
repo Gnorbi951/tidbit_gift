@@ -37,7 +37,7 @@ public class ProductServiceApplication {
         return args -> {
 
             Product nikonCamera = Product.builder()
-                    .userId(1L)
+                    .userId(2L)
                     .name("Nikon Camera")
                     .description("Nikon SLR camera from 1991.")
                     .picture("https://3.bp.blogspot.com/-cr90gnwsHfc/Wx5J8PwfKfI/AAAAAAAABSU/1ROs4-sYggUuOA7hWyGaLTu0G3_uJnL1wCLcBGAs/s1600/IMG_2666.JPG")
@@ -57,10 +57,42 @@ public class ProductServiceApplication {
                     .picture("https://worst-gifts.com/wp-content/uploads/2018/12/81578-txvels.jpg")
                     .price(350000L)
                     .build();
+            Product bagSuit = Product.builder()
+                    .userId(3L)
+                    .name("Garbage Bag Suit")
+                    .description("I bought a new set of tires for my wife's birthday so she bought me this")
+                    .picture("https://bit.ly/2CYQBG6")
+                    .price(150L)
+                    .build();
+            Product fakeMoustache = Product.builder()
+                    .userId(3L)
+                    .name("Fake Moustache")
+                    .description("Why?")
+                    .picture("https://bit.ly/3fRLq9G")
+                    .price(2000L)
+                    .build();
+            Product retroPhone = Product.builder()
+                    .userId(4L)
+                    .name("Retro Phone")
+                    .description("I don't have a jack cable so it's useless. (Isn't it anyway?)")
+                    .picture("https://bit.ly/3fRLq9G")
+                    .price(2399L)
+                    .build();
+            Product babyHands = Product.builder()
+                    .userId(2L)
+                    .name("Plastic Baby hands")
+                    .description("I have like 20 of these, I need help.")
+                    .picture("https://ae01.alicdn.com/kf/H2a2953e26aa44c8db41acbc638b6f1767.jpg")
+                    .price(1200L)
+                    .build();
 
 
 
-            productRepository.saveAll(Arrays.asList(nikonCamera, hat, toilet));
+
+
+
+            productRepository.saveAll(Arrays.asList(nikonCamera, hat, toilet, bagSuit,
+                    fakeMoustache, retroPhone, babyHands));
         };
     }
 
