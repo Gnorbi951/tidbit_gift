@@ -68,7 +68,7 @@ public class ProductServiceApplication {
                     .userId(3L)
                     .name("Fake Moustache")
                     .description("Why?")
-                    .picture("https://bit.ly/3fRLq9G")
+                    .picture("https://i.ebayimg.com/images/g/ahIAAOSw8vZXM7Nz/s-l640.jpg")
                     .price(2000L)
                     .build();
             Product retroPhone = Product.builder()
