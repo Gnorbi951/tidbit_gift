@@ -69,6 +69,7 @@ return(
                         type="button"
                         name="submit"
                         id="submit"
+                        value="Add product"
                         onClick={addNewProduct}
                     />
             </form>
