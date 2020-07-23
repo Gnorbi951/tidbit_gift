@@ -61,3 +61,9 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-07-23 20:29:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "PICTURE VARCHAR(255)": "'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUTExMVFhUXFxkbFxcYFxgYGhUdGBkaFhgaGhcYHSggGxolHhsYITEiJSktLi4u... (17063)"; SQL statement:
+insert into product (description, name, picture, price, user_id, id) values (?, ?, ?, ?, ?, ?) [22001-200]
+2020-07-23 20:29:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "PICTURE VARCHAR(255)": "'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUTExMVFhUXFxkbFxcYFxgYGhUdGBkaFhgaGhcYHSggGxolHhsYITEiJSktLi4u... (17063)"; SQL statement:
+insert into product (description, name, picture, price, user_id, id) values (?, ?, ?, ?, ?, ?) [22001-200]

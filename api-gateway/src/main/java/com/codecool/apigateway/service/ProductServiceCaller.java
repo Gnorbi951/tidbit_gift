@@ -1,41 +1,27 @@
 package com.codecool.apigateway.service;
 
-import com.codecool.apigateway.controller.AuthController;
 import com.codecool.apigateway.controller.ControllerUtil;
 import com.codecool.apigateway.entity.UserEntity;
 import com.codecool.apigateway.model.Product;
-import com.codecool.apigateway.model.ProductListWrapper;
 import com.codecool.apigateway.model.ResponsePackage;
-import com.codecool.apigateway.model.UserIdBody;
 import com.codecool.apigateway.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class ProductServiceCaller {
-
-    @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private ControllerUtil controllerUtil;
+    private final RestTemplate restTemplate;
+    private final UserRepository userRepository;
+    private final ControllerUtil controllerUtil;
 
     @Value("${productservice.url}")
     private String baseUrl;

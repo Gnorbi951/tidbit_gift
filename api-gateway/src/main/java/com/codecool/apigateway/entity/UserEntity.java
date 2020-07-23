@@ -1,6 +1,5 @@
 package com.codecool.apigateway.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -21,10 +20,6 @@ public class UserEntity {
 
     @NonNull
     private String name;
-
-//    @NonNull
-//    @JsonIgnore
-//    private String password;
 
     @NonNull
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
