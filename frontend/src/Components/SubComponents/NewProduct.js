@@ -27,7 +27,6 @@ const NewProduct = () => {
         })
             .then((response) => {
                     history.push("/my-products")
-                    console.log(response)
                 }
             );
     }
