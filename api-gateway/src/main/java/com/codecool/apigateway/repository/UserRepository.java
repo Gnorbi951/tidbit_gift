@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<UserEntity,Long> {
 
+//    @Query("SELECT u FROM UserEntity u WHERE u.id =:id")
     UserEntity getUserById(Long id);
 
     @Query("SELECT u.password FROM UserEntity u WHERE u.id =:id")

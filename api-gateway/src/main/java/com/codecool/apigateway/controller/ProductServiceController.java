@@ -35,6 +35,7 @@ public class ProductServiceController {
 
     @PostMapping("/product")
     public ResponsePackage addNewProduct(@RequestHeader String authorization, @RequestBody Product product) {
+        System.out.println("here");
         return productServiceCaller.addNewProduct(product, authorization);
     }
 

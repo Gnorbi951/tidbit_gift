@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/productservice/product").authenticated()
+//                .antMatchers(HttpMethod.POST, "/productservice/product").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/productservice/product/**").authenticated()
                 .antMatchers("/productservice/product/user/**").authenticated()
                 .antMatchers("/auth/**","/userservice/**","/productservice/**").permitAll()

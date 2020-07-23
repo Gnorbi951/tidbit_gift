@@ -1,28 +1,49 @@
 import React from "react";
+import axios from "axios";
 
 const NewProduct = () => {
-    let form = {"name": "", "description": "", "price": "", "picture": ""};
+    let product = {"id":"0","userId": `${localStorage.getItem("id")}`,"name": "", "description": "", "price": "", "picture": ""};
+
 
     const addNewProduct = () => {
-        form.name = document.querySelector("#name").value;
-        form.description = document.querySelector("#description").value;
-        form.price = document.querySelector("#price").value;
-        form.picture = document.querySelector("#picture").value;
+        product.name = document.querySelector("#name").value;
+        product.description = document.querySelector("#description").value;
+        product.price = document.querySelector("#price").value;
+        product.picture = document.querySelector("#picture").value;
 
-        fetch('http://localhost:8762/productservice/product', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(form)
+        console.log(product)
+
+        axios({
+            method: 'post',
+            url: 'http://localhost:8762/productservice/product',
+            data: {
+                id: product.id,
+                userId: product.userId,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                picture: product.picture
+            }
         })
-            .then(response => response.json())
-            .then(response => {
-                console.log(response)
-            });
+            .then((response) => {
+                console.log(response)}
+            );
     }
 
-    return(
+
+        // fetch('http://localhost:8762/productservice/product', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(form)
+        // })
+        //     .then(response => response.json())
+        //     .then(response => {
+        //         console.log(response)
+        //     });
+
+return(
         <React.Fragment>
             <form className="form" action="" method="post">
                 <h3>New Product</h3>
