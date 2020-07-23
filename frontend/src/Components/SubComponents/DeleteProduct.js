@@ -15,9 +15,17 @@ const DeleteProduct = (props) => {
 
     return (
         <div>
-            <button onClick={deleteProduct}>Delete Product</button>
+            <button type="button" class="btn btn-dark" style={centeredButton} onClick={deleteProduct}>Delete Product
+            </button>
         </div>
     )
 }
 
 export default DeleteProduct;
+
+const centeredButton = {
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginBottom: "1%"
+ }

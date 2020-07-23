@@ -36,11 +36,11 @@ const NewProduct = () => {
 
 return(
         <React.Fragment>
-            <StyledForm className="form">
+            <form style={centerForm} className="form">
                 <h3>New Product</h3>
-                    <label>Name:</label>
-                    <input class="input-group-text"
-                        type="text"
+                    <label>Name:</label><br/>
+                <input class="input-group-text"
+                       type="text"
                         name="name"
                         id="name"
                         placeholder="name"
@@ -69,22 +69,25 @@ return(
                            placeholder="insert a valid url"
                     />
                     <br/>
+                    <p/>
                     <input
                         type="button"
+                        class="btn btn-dark"
                         name="submit"
                         id="submit"
                         value="Add product"
                         onClick={addNewProduct}
                     />
-            </StyledForm>
+            </form>
         </React.Fragment>
     )
 }
 
-const StyledForm = styled.div`
-    position:relative;
-    left: 25em;
-    top: 3em;
-`
+const centerForm = {
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)"
+}
 
 export default NewProduct;
