@@ -56,7 +56,7 @@ public class ProductServiceCaller {
         UserEntity userFromToken = controllerUtil.getUserFromToken(authorization);
         UserEntity user = userRepository.getUserById(product.getUserId());
 
-        if (user != null && userFromToken.getId() == user.getId()) {
+        if (user != null && userFromToken.getId().equals(user.getId())) {
             return restTemplate.postForObject(baseUrl + "/product", product, ResponsePackage.class);
         }
         return new ResponsePackage(false, "Wrong user.");

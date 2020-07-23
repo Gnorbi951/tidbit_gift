@@ -7,6 +7,7 @@ import Login from "./Components/Login";
 import axios from "axios";
 import MyProducts from "./Components/MyProducts";
 import Registration from "./Components/Registration";
+import NewProduct from "./Components/SubComponents/NewProduct";
 
 function App() {
     axios.interceptors.request.use(function (config) {
@@ -25,6 +26,7 @@ function App() {
             <Route exact path={"/login"} component={Login} />
             <Route exact path={"/my-products"} component={MyProducts} />
             <Route exact path={"/registration"} component={Registration} />
+            <Route exact path={"/new-product"} component={NewProduct} />
         </Router>
     </div>
     );
