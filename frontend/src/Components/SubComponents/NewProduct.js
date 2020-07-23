@@ -86,11 +86,10 @@ return(
 }
 
 const centerForm = {
-    position: "absolute",
-    left: "50%",
-    top: "50%",
-    marginTop: "6em",
-    transform: "translate(-50%, -50%)"
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column"
 }
 
 export default NewProduct;
