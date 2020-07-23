@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
+import styled from "styled-components";
 
 const NewProduct = () => {
     let product = {"id":"0","userId": `${localStorage.getItem("id")}`,"name": "", "description": "", "price": "", "picture": ""};
@@ -35,34 +36,37 @@ const NewProduct = () => {
 
 return(
         <React.Fragment>
-            <form className="form">
+            <StyledForm className="form">
                 <h3>New Product</h3>
                     <label>Name:</label>
-                    <input
+                    <input class="input-group-text"
                         type="text"
                         name="name"
                         id="name"
+                        placeholder="name"
                     />
                     <br/>
                     <label>Description:</label>
-                    <input
+                    <input class="input-group-text"
                         type="text"
                         name="description"
                         id="description"
+                           placeholder="description"
                     />
                     <br/>
                     <label>Price:</label>
-                    <input
+                    <input class="input-group-text"
                         type="number"
                         name="price"
                         id="price"
                     />
                     <br/>
                     <label>Picture:</label>
-                    <input
+                    <input class="input-group-text"
                         type="text"
                         name="picture"
                         id="picture"
+                           placeholder="insert a valid url"
                     />
                     <br/>
                     <input
@@ -72,9 +76,15 @@ return(
                         value="Add product"
                         onClick={addNewProduct}
                     />
-            </form>
+            </StyledForm>
         </React.Fragment>
     )
 }
+
+const StyledForm = styled.div`
+    position:relative;
+    left: 25em;
+    top: 3em;
+`
 
 export default NewProduct;
