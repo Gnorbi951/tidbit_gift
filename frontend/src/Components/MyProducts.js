@@ -23,8 +23,9 @@ const MyProducts =() => {
                     {products  ?
                         <Cards items={products} />
                         :
-                        <p>Upload new product <Link to={"/new-product"}>here!</Link></p>
+                        <p>there are no products</p>
                     }
+                    <p>Upload new product <Link to={"/new-product"}>here!</Link></p>
                 </div>
                 :
                 <p>Not logged in, please <Link to={"/login"}>Log in!</Link> </p>

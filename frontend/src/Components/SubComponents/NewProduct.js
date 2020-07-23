@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 const NewProduct = () => {
     let product = {"id":"0","userId": `${localStorage.getItem("id")}`,"name": "", "description": "", "price": "", "picture": ""};
-
+    const history = useHistory()
 
     const addNewProduct = () => {
         product.name = document.querySelector("#name").value;
@@ -26,26 +27,15 @@ const NewProduct = () => {
             }
         })
             .then((response) => {
-                console.log(response)}
+                history.push("/my-products")
+                    console.log(response)
+            }
             );
     }
 
-
-        // fetch('http://localhost:8762/productservice/product', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(form)
-        // })
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         console.log(response)
-        //     });
-
 return(
         <React.Fragment>
-            <form className="form" action="" method="post">
+            <form className="form">
                 <h3>New Product</h3>
                     <label>Name:</label>
                     <input
@@ -76,7 +66,7 @@ return(
                     />
                     <br/>
                     <input
-                        type="submit"
+                        type="button"
                         name="submit"
                         id="submit"
                         onClick={addNewProduct}
