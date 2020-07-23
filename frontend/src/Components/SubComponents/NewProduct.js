@@ -39,37 +39,38 @@ return(
             <div>
                 <form style={centerForm} className="form">
                     <h3>New Product</h3>
-                        <label>Name:</label><br/>
+                    <br/>
+                    <label>Name:</label>
                     <input class="input-group-text"
                            type="text"
                             name="name"
                             id="name"
                             placeholder="name"
                         />
-                        <br/>
-                        <label>Description:</label>
+                    <br/>
+                    <label>Description:</label>
                         <input class="input-group-text"
                             type="text"
                             name="description"
                             id="description"
                                placeholder="description"
                         />
-                        <br/>
-                        <label>Price:</label>
+                    <br/>
+                    <label>Price:</label>
                         <input class="input-group-text"
                             type="number"
                             name="price"
                             id="price"
                         />
-                        <br/>
-                        <label>Picture:</label>
+                    <br/>
+                    <label>Picture:</label>
                         <input class="input-group-text"
                             type="text"
                             name="picture"
                             id="picture"
                                placeholder="insert a valid url"
                         />
-                        <br/>
+                        {/*<br/>*/}
                         <p/>
                         <input
                             type="button"
