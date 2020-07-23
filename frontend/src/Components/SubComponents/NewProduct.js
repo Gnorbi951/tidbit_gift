@@ -36,49 +36,51 @@ const NewProduct = () => {
 
 return(
         <React.Fragment>
-            <form style={centerForm} className="form">
-                <h3>New Product</h3>
-                    <label>Name:</label><br/>
-                <input class="input-group-text"
-                       type="text"
-                        name="name"
-                        id="name"
-                        placeholder="name"
-                    />
-                    <br/>
-                    <label>Description:</label>
+            <div>
+                <form style={centerForm} className="form">
+                    <h3>New Product</h3>
+                        <label>Name:</label><br/>
                     <input class="input-group-text"
-                        type="text"
-                        name="description"
-                        id="description"
-                           placeholder="description"
-                    />
-                    <br/>
-                    <label>Price:</label>
-                    <input class="input-group-text"
-                        type="number"
-                        name="price"
-                        id="price"
-                    />
-                    <br/>
-                    <label>Picture:</label>
-                    <input class="input-group-text"
-                        type="text"
-                        name="picture"
-                        id="picture"
-                           placeholder="insert a valid url"
-                    />
-                    <br/>
-                    <p/>
-                    <input
-                        type="button"
-                        class="btn btn-dark"
-                        name="submit"
-                        id="submit"
-                        value="Add product"
-                        onClick={addNewProduct}
-                    />
-            </form>
+                           type="text"
+                            name="name"
+                            id="name"
+                            placeholder="name"
+                        />
+                        <br/>
+                        <label>Description:</label>
+                        <input class="input-group-text"
+                            type="text"
+                            name="description"
+                            id="description"
+                               placeholder="description"
+                        />
+                        <br/>
+                        <label>Price:</label>
+                        <input class="input-group-text"
+                            type="number"
+                            name="price"
+                            id="price"
+                        />
+                        <br/>
+                        <label>Picture:</label>
+                        <input class="input-group-text"
+                            type="text"
+                            name="picture"
+                            id="picture"
+                               placeholder="insert a valid url"
+                        />
+                        <br/>
+                        <p/>
+                        <input
+                            type="button"
+                            class="btn btn-dark"
+                            name="submit"
+                            id="submit"
+                            value="Add product"
+                            onClick={addNewProduct}
+                        />
+                </form>
+            </div>
         </React.Fragment>
     )
 }
@@ -87,6 +89,7 @@ const centerForm = {
     position: "absolute",
     left: "50%",
     top: "50%",
+    marginTop: "6em",
     transform: "translate(-50%, -50%)"
 }
 
