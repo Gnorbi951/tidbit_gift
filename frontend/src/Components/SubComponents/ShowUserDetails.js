@@ -8,7 +8,8 @@ const ShowUserDetails = props => {
 
         axios.get(`http://localhost:8762/userservice/user/${props.id}`)
             .then(resp => {setUserData(resp)
-        console.log(resp)});
+        // console.log(resp)
+            });
 
     }, [props])
 

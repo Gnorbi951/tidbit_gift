@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
-import styled from "styled-components";
 
 const NewProduct = () => {
     let product = {"id":"0","userId": `${localStorage.getItem("id")}`,"name": "", "description": "", "price": "", "picture": ""};

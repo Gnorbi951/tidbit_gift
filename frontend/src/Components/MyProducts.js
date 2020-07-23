@@ -21,7 +21,7 @@ const MyProducts =() => {
         <React.Fragment>
             {localStorage.getItem("id") ?
                 <div>
-                <NewProductButton>Upload new product <Link type="button" class="btn btn-warning" to={"/new-product"}>here!</Link></NewProductButton>
+                <NewProductButton>Upload new product <Link type="button" className="btn btn-warning" to={"/new-product"}>here!</Link></NewProductButton>
                     {products  ?
                         <Cards items={products} />
                         :

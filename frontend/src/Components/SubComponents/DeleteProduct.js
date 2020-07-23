@@ -15,7 +15,7 @@ const DeleteProduct = (props) => {
 
     return (
         <div>
-            <button type="button" class="btn btn-dark" style={centeredButton} onClick={deleteProduct}>Delete Product
+            <button type="button" className="btn btn-dark" style={centeredButton} onClick={deleteProduct}>Delete Product
             </button>
         </div>
     )
