@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import Cards from "./Cards";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import styled from "styled-components";
 
 const MyProducts =() => {
 
@@ -20,12 +21,12 @@ const MyProducts =() => {
         <React.Fragment>
             {localStorage.getItem("id") ?
                 <div>
+                <NewProductButton>Upload new product <Link type="button" className="btn btn-warning" to={"/new-product"}>here!</Link></NewProductButton>
                     {products  ?
                         <Cards items={products} />
                         :
-                        <p>there are no products</p>
+                        <StyledP>there are no products</StyledP>
                     }
-                    <p>Upload new product <Link to={"/new-product"}>here!</Link></p>
                 </div>
                 :
                 <p>Not logged in, please <Link to={"/login"}>Log in!</Link> </p>
@@ -33,5 +34,15 @@ const MyProducts =() => {
         </React.Fragment>
     )
 }
+
+const NewProductButton = styled.div`
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 1em;
+`
+
+const StyledP = styled.p`
+      text-align: center;
+`
 
 export default MyProducts;

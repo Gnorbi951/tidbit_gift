@@ -6,8 +6,7 @@ import DeleteProduct from "./SubComponents/DeleteProduct";
 const Cards = props => {
     return(
         <React.Fragment>
-
-            <div className="card-columns">
+            <div className="card-columns" style={cardStyle}>
                 {props.items.map((item) =>
                     <div className="card" key={item.id}>
                         <div className="card-img-top">
@@ -22,8 +21,11 @@ const Cards = props => {
                             <div className="card-text"><ShowUserDetails id={item.userId} caller={"card"} /></div>
                         </div>
                         {localStorage.getItem("id") === item.userId ?
-                            <DeleteProduct id={item.id} userId={item.userId} />
-                            :
+                            (window.location.href).includes("my-products") ?
+                                <DeleteProduct id={item.id} userId={item.userId} />
+                                :
+                                <div/>
+                                :
                             <div/>
                         }
                     </div>
@@ -34,3 +36,7 @@ const Cards = props => {
 }
 
 export default Cards;
+
+const cardStyle = {
+    border: "solid white 12px",
+}

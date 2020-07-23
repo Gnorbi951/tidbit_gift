@@ -4,15 +4,14 @@ import {useHistory} from "react-router-dom";
 
 const NewProduct = () => {
     let product = {"id":"0","userId": `${localStorage.getItem("id")}`,"name": "", "description": "", "price": "", "picture": ""};
-    const history = useHistory()
+    const history = useHistory();
 
-    const addNewProduct = () => {
+    const addNewProduct = (event) => {
+        event.preventDefault();
         product.name = document.querySelector("#name").value;
         product.description = document.querySelector("#description").value;
         product.price = document.querySelector("#price").value;
         product.picture = document.querySelector("#picture").value;
-
-        console.log(product)
 
         axios({
             method: 'post',
@@ -27,53 +26,70 @@ const NewProduct = () => {
             }
         })
             .then((response) => {
-                history.push("/my-products")
-                    console.log(response)
-            }
+                    history.push("/my-products")
+                }
             );
     }
 
 return(
         <React.Fragment>
-            <form className="form">
-                <h3>New Product</h3>
+            <div>
+                <form style={centerForm} className="form" onSubmit={addNewProduct}>
+                    <h3>New Product</h3>
+                    <br/>
                     <label>Name:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                    />
+                    <input className="input-group-text"
+                           type="text"
+                            name="name"
+                            id="name"
+                            placeholder="name"
+                           required
+                        />
                     <br/>
                     <label>Description:</label>
-                    <input
-                        type="text"
-                        name="description"
-                        id="description"
-                    />
+                        <input className="input-group-text"
+                            type="text"
+                            name="description"
+                            id="description"
+                            placeholder="description"
+                            required
+                        />
                     <br/>
                     <label>Price:</label>
-                    <input
-                        type="number"
-                        name="price"
-                        id="price"
-                    />
+                        <input className="input-group-text"
+                            type="number"
+                            name="price"
+                            id="price"
+                            min="0"
+                            required
+                        />
                     <br/>
                     <label>Picture:</label>
-                    <input
-                        type="text"
-                        name="picture"
-                        id="picture"
-                    />
-                    <br/>
-                    <input
-                        type="button"
-                        name="submit"
-                        id="submit"
-                        onClick={addNewProduct}
-                    />
-            </form>
+                        <input className="input-group-text"
+                            type="text"
+                            name="picture"
+                            id="picture"
+                               placeholder="insert a valid url"
+                        />
+                        <p/>
+                        <input
+                            type="submit"
+                            className="btn btn-dark"
+                            name="submit"
+                            id="submit"
+                            value="Add product"
+                        />
+                </form>
+            </div>
         </React.Fragment>
     )
+}
+
+const centerForm = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column"
 }
 
 export default NewProduct;
