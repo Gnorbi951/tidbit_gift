@@ -35,38 +35,40 @@ const NewProduct = () => {
 
 return(
         <React.Fragment>
-            <form className="form">
+            <form style={centerForm} className="form">
                 <h3>New Product</h3>
-                    <label>Name:</label>
+                    <label>Name:</label><br/>
                     <input
                         type="text"
                         name="name"
                         id="name"
                     />
                     <br/>
-                    <label>Description:</label>
+                    <label>Description:</label><br/>
                     <input
                         type="text"
                         name="description"
                         id="description"
                     />
                     <br/>
-                    <label>Price:</label>
+                    <label>Price:</label><br/>
                     <input
                         type="number"
                         name="price"
                         id="price"
                     />
                     <br/>
-                    <label>Picture:</label>
+                    <label>Picture:</label><br/>
                     <input
                         type="text"
                         name="picture"
                         id="picture"
                     />
                     <br/>
+                    <p/>
                     <input
                         type="button"
+                        class="btn btn-dark"
                         name="submit"
                         id="submit"
                         value="Add product"
@@ -78,3 +80,10 @@ return(
 }
 
 export default NewProduct;
+
+const centerForm = {
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)"
+}
