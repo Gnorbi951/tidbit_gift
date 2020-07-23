@@ -2,6 +2,7 @@ package com.codecool.product;
 
 import com.codecool.product.entity.Product;
 import com.codecool.product.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,13 +20,9 @@ import java.util.Arrays;
 @SpringBootApplication
 @EnableSwagger2
 @EnableEurekaClient
+@RequiredArgsConstructor
 public class ProductServiceApplication {
-
     private final ProductRepository productRepository;
-
-    public ProductServiceApplication(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(ProductServiceApplication.class, args);
@@ -85,11 +82,6 @@ public class ProductServiceApplication {
                     .picture("https://ae01.alicdn.com/kf/H2a2953e26aa44c8db41acbc638b6f1767.jpg")
                     .price(1200L)
                     .build();
-
-
-
-
-
 
             productRepository.saveAll(Arrays.asList(nikonCamera, hat, toilet, bagSuit,
                     fakeMoustache, retroPhone, babyHands));

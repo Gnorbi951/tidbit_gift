@@ -4,6 +4,7 @@ import com.codecool.product.entity.Product;
 import com.codecool.product.model.ResponsePackage;
 import com.codecool.product.service.ProductOrganiser;
 import com.codecool.product.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,15 +14,11 @@ import java.util.List;
 @CrossOrigin("http://localhost:3000")
 @RequestMapping("/productservice")
 @Slf4j
+@RequiredArgsConstructor
 public class ProductController {
 
     private final ProductRepository productRepository;
     private final ProductOrganiser productOrganiser;
-
-    public ProductController(ProductRepository productRepository, ProductOrganiser productOrganiser) {
-        this.productRepository = productRepository;
-        this.productOrganiser = productOrganiser;
-    }
 
     // TODO: get wrapper around the list?
     @GetMapping("/product")
