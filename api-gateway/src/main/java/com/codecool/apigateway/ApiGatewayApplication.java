@@ -84,6 +84,12 @@ public class ApiGatewayApplication {
     }
 
     @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
+    @Bean
     @Profile("production")
     public CommandLineRunner init() {
         return args -> {
@@ -91,7 +97,7 @@ public class ApiGatewayApplication {
             repository.saveAndFlush(UserEntity.builder()
                     .name("Lajos")
                     .password(passwordEncoder.encode("password"))
-                    .email("lajos@lajos.com")
+                    .email("olajos@gmail.com")
                     .roles(Collections.singletonList("USER"))
                     .build()
             );
@@ -99,16 +105,28 @@ public class ApiGatewayApplication {
             repository.saveAndFlush(UserEntity.builder()
                     .name("admin")
                     .password(passwordEncoder.encode("password"))
-                    .email("email@email.com")
+                    .email("root@google.com")
                     .roles(Arrays.asList("USER", "ADMIN"))
                     .build()
             );
+            repository.saveAndFlush(UserEntity.builder()
+                    .name("Gábor")
+                    .password(passwordEncoder.encode("password"))
+                    .email("gaben@gmail.com")
+                    .roles(Arrays.asList("USER", "ADMIN"))
+                    .build()
+            );
+            repository.saveAndFlush(UserEntity.builder()
+                    .name("Ádám")
+                    .password(passwordEncoder.encode("password"))
+                    .email("adi@gmail.com")
+                    .roles(Arrays.asList("USER", "ADMIN"))
+                    .build()
+            );
+
+
+
         };
     }
 
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 }
