@@ -13,7 +13,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -77,7 +76,7 @@ public class UserUtils {
             String name = data.getName();
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(name, data.getPassword()));
             List<String> roles = authentication.getAuthorities()
-                    .stream()
+                    .parallelStream()
                     .map(GrantedAuthority::getAuthority)
                     .collect(Collectors.toList());
 

@@ -23,7 +23,7 @@ const MyProducts =() => {
                 <div>
                 <NewProductButton>Upload new product <Link type="button" className="btn btn-warning" to={"/new-product"}>here!</Link></NewProductButton>
                     {products  ?
-                        <Cards items={products} />
+                        <Cards items={products} delete={true} />
                         :
                         <StyledP>there are no products</StyledP>
                     }

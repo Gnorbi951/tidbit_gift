@@ -51,7 +51,7 @@ public class ProductServiceCaller {
     public ResponsePackage deleteProductOfUser(Long id, String authorization) {
         UserEntity userFromToken = controllerUtil.getUserFromToken(authorization);
         Long userId = userFromToken.getId();
-        UserEntity user = userRepository.getUserById(userId); // TODO: check if we need to double check at all
+        UserEntity user = userRepository.getUserById(userId);
         String url = baseUrl + "/product/" + id + "/" + userId;
 
         if (user != null && userFromToken.getName() == user.getName()) {

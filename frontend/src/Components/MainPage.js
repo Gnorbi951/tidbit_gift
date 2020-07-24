@@ -14,7 +14,7 @@ const MainPage = () => {
 
     return(
         <React.Fragment>
-            {items ? <Cards items={items} />
+            {items ? <Cards items={items} delete={false} />
             : <LoadingImage src={"https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"} //This is the loading image
                alt={"Loading"} />}
         </React.Fragment>
