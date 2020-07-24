@@ -1,10 +1,10 @@
-package com.codecool.product;
+package com.codecool.apigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProductServiceApplicationTests {
+class ApiGatewayApplicationTests {
 
     @Test
     void contextLoads() {
