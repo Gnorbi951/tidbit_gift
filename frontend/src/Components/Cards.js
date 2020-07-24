@@ -21,7 +21,7 @@ const Cards = props => {
                             <div className="card-text"><ShowUserDetails id={item.userId} caller={"card"} /></div>
                         </div>
                         {localStorage.getItem("id") === item.userId ?
-                            (window.location.href).includes("my-products") ?
+                            (props.delete == true) ?
                                 <DeleteProduct id={item.id} userId={item.userId} />
                                 :
                                 <div/>
